@@ -1,0 +1,46 @@
+ul {
+  list-style-type: none;
+  text-align: left;
+ }
+
+.navbar {
+  padding: 10px 0;
+  background-color: royalblue;
+
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  color: white;
+}
+
+.item-menu {
+  color: white;
+}
+
+.navbar-toggle {
+  color: white;
+}
+
+.example-container {
+  height: 100%;
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  background-color: white;
+}
+
+.example-sidenav {
+  background-color: royalblue;
+  align-items: center;
+  padding: 20px;
+  height: 100%;
+}
+
+

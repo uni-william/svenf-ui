@@ -7,6 +7,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmpresaPesquisaComponent implements OnInit {
 
+  empresas = [
+    { cnpj: '04408929000105',
+      razaoSocial: 'G. N. Ltda',
+      nomeFantasia: 'Iranduba Pescado',
+      inscricaoEstadual: '123456789'
+    },
+    { cnpj: '04408929000105',
+      razaoSocial: 'G. N. Ltda',
+      nomeFantasia: 'Iranduba Pescado',
+      inscricaoEstadual: '123456789'
+    },
+    { cnpj: '04408929000105',
+      razaoSocial: 'G. N. Ltda',
+      nomeFantasia: 'Iranduba Pescado',
+      inscricaoEstadual: '123456789'
+    },
+    { cnpj: '04408929000105',
+      razaoSocial: 'G. N. Ltda',
+      nomeFantasia: 'Iranduba Pescado',
+      inscricaoEstadual: '123456789'
+    },
+    { cnpj: '04408929000105',
+      razaoSocial: 'G. N. Ltda',
+      nomeFantasia: 'Iranduba Pescado',
+      inscricaoEstadual: '123456789'
+    }
+  ];
+
   constructor() { }
 
   ngOnInit(): void {
