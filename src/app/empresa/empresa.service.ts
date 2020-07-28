@@ -8,8 +8,10 @@ export class EmpresaService {
 
   constructor(private http: HttpClient) { }
 
+  empresasUrl = 'http://localhost:8080/empresas';
+
   consultar(): Promise<any> {
-    return this.http.get('http://localhost:8080/empresas')
+    return this.http.get(this.empresasUrl)
       .toPromise();
   }
 }
