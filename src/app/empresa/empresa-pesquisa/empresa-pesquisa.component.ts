@@ -1,3 +1,4 @@
+import { EmpresaService } from './../empresa.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,37 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmpresaPesquisaComponent implements OnInit {
 
-  empresas = [
-    { cnpj: '04408929000105',
-      razaoSocial: 'G. N. Ltda',
-      nomeFantasia: 'Iranduba Pescado',
-      inscricaoEstadual: '123456789'
-    },
-    { cnpj: '04408929000105',
-      razaoSocial: 'G. N. Ltda',
-      nomeFantasia: 'Iranduba Pescado',
-      inscricaoEstadual: '123456789'
-    },
-    { cnpj: '04408929000105',
-      razaoSocial: 'G. N. Ltda',
-      nomeFantasia: 'Iranduba Pescado',
-      inscricaoEstadual: '123456789'
-    },
-    { cnpj: '04408929000105',
-      razaoSocial: 'G. N. Ltda',
-      nomeFantasia: 'Iranduba Pescado',
-      inscricaoEstadual: '123456789'
-    },
-    { cnpj: '04408929000105',
-      razaoSocial: 'G. N. Ltda',
-      nomeFantasia: 'Iranduba Pescado',
-      inscricaoEstadual: '123456789'
-    }
-  ];
+  empresas = [];
 
-  constructor() { }
+  constructor(private service: EmpresaService) { }
 
   ngOnInit(): void {
+    this.service.consultar()
+    .then(empresas => {
+      this.empresas = empresas;
+    });
   }
 
 }
