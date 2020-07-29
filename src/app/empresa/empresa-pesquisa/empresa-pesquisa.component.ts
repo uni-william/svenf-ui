@@ -1,4 +1,4 @@
-import { EmpresaService } from './../empresa.service';
+import { EmpresaService, EmpresaFiltro } from './../empresa.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Table } from 'primeng/table';
 import { MessageService, ConfirmationService } from 'primeng/api';
@@ -25,7 +25,12 @@ export class EmpresaPesquisaComponent implements OnInit {
   }
 
   consultar() {
-    this.service.consultar({cnpj: this.cnpj, razaoSocial: this.razaoSocial})
+    const filtro: EmpresaFiltro = {
+      cnpj: this.cnpj,
+      razaoSocial: this.razaoSocial
+    };
+
+    this.service.consultar(filtro)
     .then(empresas => {
       this.empresas = empresas;
     });
