@@ -8,6 +8,11 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { EmpresaModule } from './empresa/empresa.module';
 import { EmpresaService } from './empresa/empresa.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
+
 
 @NgModule({
   declarations: [
@@ -19,9 +24,11 @@ import { HttpClientModule } from '@angular/common/http';
     EmpresaModule,
     BrowserAnimationsModule,
     MatSidenavModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastModule,
+    ConfirmDialogModule
   ],
-  providers: [EmpresaService],
+  providers: [EmpresaService, MessageService, ConfirmationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
