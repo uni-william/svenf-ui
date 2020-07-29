@@ -1,7 +1,7 @@
 import { EmpresaService, EmpresaFiltro } from './../empresa.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Table } from 'primeng/table';
-import { MessageService, ConfirmationService } from 'primeng/api';
+import { MessageService, ConfirmationService, LazyLoadEvent } from 'primeng/api';
 
 @Component({
   selector: 'app-empresa-pesquisa',
@@ -11,9 +11,8 @@ import { MessageService, ConfirmationService } from 'primeng/api';
 export class EmpresaPesquisaComponent implements OnInit {
 
   empresas = [];
-
-  cnpj: string;
-  razaoSocial: string;
+  filtro = new EmpresaFiltro();
+  totalRegistros = 0;
 
   @ViewChild('tabela', {static: true}) grid: Table;
 
@@ -24,15 +23,12 @@ export class EmpresaPesquisaComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  consultar() {
-    const filtro: EmpresaFiltro = {
-      cnpj: this.cnpj,
-      razaoSocial: this.razaoSocial
-    };
-
-    this.service.consultar(filtro)
-    .then(empresas => {
-      this.empresas = empresas;
+  pesquisar(pagina = 0) {
+    this.filtro.pagina = pagina;
+    this.service.consultar(this.filtro)
+    .then(resultado => {
+      this.empresas = resultado.empresas;
+      this.totalRegistros = resultado.total;
     });
   }
 
@@ -50,10 +46,16 @@ export class EmpresaPesquisaComponent implements OnInit {
   excluir(empresa: any) {
     this.service.excluir(empresa.id)
     .then(() => {
-      this.consultar();
+      this.pesquisar();
       this.grid.reset();
       this.messageService.add({severity: 'success', detail: 'Empresa excluída com sucesso!'});
     });
+  }
+
+
+  aoMudarPagina(event: LazyLoadEvent) {
+    const pagina = event.first / event.rows;
+    this.pesquisar(pagina);
   }
 
 }

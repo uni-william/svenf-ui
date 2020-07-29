@@ -2,9 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
 
-export interface EmpresaFiltro {
+export class EmpresaFiltro {
   cnpj: string;
   razaoSocial: string;
+  pagina = 0;
+  itensPorPagina = 5;
 }
 
 @Injectable({
@@ -19,6 +21,11 @@ export class EmpresaService {
   consultar(filtro: EmpresaFiltro): Promise<any> {
 
     let params = new HttpParams();
+
+    params = params.set('page', filtro.pagina.toString());
+    params = params.set('size', filtro.itensPorPagina.toString());
+
+
     if (filtro.cnpj) {
       params = params.set('cnpj', filtro.cnpj);
     }
@@ -29,7 +36,14 @@ export class EmpresaService {
 
     return this.http.get(`${this.empresasUrl}`, { params })
       .toPromise()
-      .then(response => response['content']);
+      .then(response => {
+        const empresas = response['content']
+        const resultado = {
+          empresas,
+          total: response['totalElements']
+        }
+        return resultado;
+      });
   }
 
   excluir(id: number): Promise<void> {

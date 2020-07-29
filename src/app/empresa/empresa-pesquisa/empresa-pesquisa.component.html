@@ -1,5 +1,5 @@
 <div class="container">
-  <form autocomplete="off" #frmPesquisa="ngForm" (ngSubmit)="consultar()">
+  <form autocomplete="off" #frmPesquisa="ngForm" (ngSubmit)="pesquisar()">
     <div class="ui-g">
       <div class="ui-g-12">
         <h1>Empresas</h1>
@@ -7,12 +7,12 @@
 
       <div class="ui-g-12">
         <label style="display: block;">CNPJ</label>
-        <p-inputMask mask="99.999.999/9999-99" name="cnpj" [(ngModel)]="cnpj"></p-inputMask>
+        <p-inputMask mask="99.999.999/9999-99" name="cnpj" [(ngModel)]="filtro.cnpj"></p-inputMask>
       </div>
 
       <div class="ui-g-12 ui-fluid">
         <label>Razão social</label>
-        <input type="text" pInputText name="razaoSocial" [(ngModel)]="razaoSocial" />
+        <input type="text" pInputText name="razaoSocial" [(ngModel)]="filtro.razaoSocial" />
       </div>
 
       <div class="ui-g-12">
@@ -22,8 +22,9 @@
   </form>
   <div class="ui-g">
       <div class="ui-g-12">
-      <p-table [value]="empresas" [paginator]="true" [rows]="3" [showCurrentPageReport]="true" [responsive]="true"
-      #tabela>
+      <p-table [value]="empresas"  [showCurrentPageReport]="true" [responsive]="true"
+      #tabela [paginator]="true" [rows]="filtro.itensPorPagina" [lazy]="true" [totalRecords]="totalRegistros"
+      (onLazyLoad)="aoMudarPagina($event)">
           <ng-template pTemplate="header">
               <tr>
                   <th class="col-id">Id</th>
