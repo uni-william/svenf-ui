@@ -59,4 +59,17 @@ export class EmpresaService {
     return this.http.post<Empresa>(this.empresasUrl, empresa, { headers })
   .toPromise();
   }
+
+  buscarPorId(id: number): Promise<Empresa> {
+    return this.http.get<Empresa>(`${this.empresasUrl}/${id}`)
+    .toPromise();
+  }
+
+  atualizar(empresa: Empresa): Promise<Empresa> {
+    let headers = new HttpHeaders();
+    headers = headers.append('Content-Type', 'application/json');
+    return this.http.put<Empresa>(`${this.empresasUrl}/${empresa.id}`, empresa, { headers })
+  .toPromise();
+  }
+
 }

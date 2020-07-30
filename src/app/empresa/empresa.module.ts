@@ -1,3 +1,4 @@
+import { AppRoutingModule } from './../app-routing.module';
 import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -23,7 +24,8 @@ import { FormsModule } from '@angular/forms';
     ButtonModule,
     TooltipModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    AppRoutingModule
   ],
   exports: [EmpresaPesquisaComponent, EmpresaCadastroComponent]
 })

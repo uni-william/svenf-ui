@@ -4,6 +4,7 @@ import { ErrorHandlerService } from './../../core/error-handler.service';
 import { EmpresaService } from './../empresa.service';
 import { MessageService } from 'primeng/api';
 import { Empresa } from './../../core/model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-empresa-cadastro',
@@ -17,7 +18,8 @@ export class EmpresaCadastroComponent implements OnInit {
   constructor(
     private service: EmpresaService,
     private messageService: MessageService,
-    private errorHandler: ErrorHandlerService
+    private errorHandler: ErrorHandlerService,
+    private route: ActivatedRoute
   ) { }
 
   salvar(form: NgForm) {
@@ -31,5 +33,6 @@ export class EmpresaCadastroComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.route.snapshot.params['id']);
   }
 }

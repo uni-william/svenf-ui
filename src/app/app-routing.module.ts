@@ -5,8 +5,9 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: 'empresas', component: EmpresaPesquisaComponent },
-  { path: 'empresas/nova', component: EmpresaCadastroComponent }
-]
+  { path: 'empresas/nova', component: EmpresaCadastroComponent },
+  { path: 'empresas/:id', component: EmpresaCadastroComponent }
+];
 
 @NgModule({
   imports: [
