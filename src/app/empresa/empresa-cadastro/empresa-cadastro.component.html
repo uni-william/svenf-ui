@@ -8,64 +8,64 @@
       <div class="ui-g-12">
         <label style="display: block;">CNPJ</label>
         <p-inputMask mask="99.999.999/9999-99" name="cnpj"
-        ngModel #cnpj="ngModel" required ></p-inputMask>
+        [(ngModel)]="empresa.cnpj" #cnpj="ngModel" required ></p-inputMask>
         <app-message [control]="cnpj" error="required" text="Informe o cnpj"></app-message>
       </div>
       <div class="ui-g-12 ui-md-6 ui-fluid">
         <label>Razão social</label>
-        <input type="text" pInputText name="razaoSocial" ngModel #razaoSocial="ngModel" required />
+        <input type="text" pInputText name="razaoSocial" [(ngModel)]="empresa.razaoSocial" #razaoSocial="ngModel" required />
         <app-message [control]="razaoSocial" error="required" text="Informe a razão social"></app-message>
       </div>
 
       <div class="ui-g-12 ui-md-6 ui-fluid">
         <label>Nome Fantasia</label>
-        <input type="text" pInputText name="nomeFantasia" ngModel #nomeFantasia="ngModel" required />
+        <input type="text" pInputText name="nomeFantasia" [(ngModel)]="empresa.nomeFantasia" #nomeFantasia="ngModel" required />
         <app-message [control]="nomeFantasia" error="required" text="Informe o nome fantasia"></app-message>
       </div>
 
       <div class="ui-g-12 ui-md-6 ui ui-fluid">
         <label>Inscrição Estadual</label>
-        <input type="text" pInputText name="ie" ngModel #ie="ngModel" required />
+        <input type="text" pInputText name="ie" [(ngModel)]="empresa.inscricaoEstadual" #ie="ngModel" required />
         <app-message [control]="ie" error="required" text="Informe a inscrição estadual"></app-message>
 
       </div>
 
       <div class="ui-g-12 ui-md-2 ui-fluid">
         <label>CRT</label>
-        <input type="text" pInputText name="crt" ngModel #crt="ngModel" required />
+        <input type="text" pInputText name="crt" [(ngModel)]="empresa.crt" #crt="ngModel" required />
         <app-message [control]="crt" error="required" text="Informe o CRT"></app-message>
       </div>
 
       <div class="ui-g-12 ui-md-6 ui-fluid">
         <label>Logradouro</label>
-        <input type="text" pInputText name="logradouro" ngModel #logradouro="ngModel" required />
+        <input type="text" pInputText name="logradouro" [(ngModel)]="empresa.endereco.logradouro" #logradouro="ngModel" required />
         <app-message [control]="logradouro" error="required" text="Informe o logradouro"></app-message>
 
       </div>
       <div class="ui-g-12 ui-md-2 ui-fluid">
         <label>Número</label>
-        <input type="text" pInputText name="numero" ngModel #numero="ngModel" />
+        <input type="text" pInputText name="numero" [(ngModel)]="empresa.endereco.numero" #numero="ngModel" />
       </div>
 
       <div class="ui-g-12 ui-md-6 ui-fluid">
         <label>Complemento</label>
-        <input type="text" pInputText />
+        <input type="text" pInputText [(ngModel)]="empresa.endereco.complemento" />
       </div>
 
-      <div class="ui-g-12 ui-md-2 ui-fluid">
+      <div class="ui-g-12 ui-md-2">
         <label style="display: block;">CEP</label>
-        <p-inputMask mask="99.999-999"></p-inputMask>
+        <p-inputMask mask="99.999-999" name="cep" [(ngModel)]="empresa.endereco.cep"></p-inputMask>
       </div>
 
       <div class="ui-g-12 ui-md-6 ui-fluid">
         <label>Cidade</label>
-        <input type="text" pInputText name="cidade" ngModel #cidade="ngModel" required />
+        <input type="text" pInputText name="cidade" [(ngModel)]="empresa.endereco.nomeCidade" #cidade="ngModel" required />
         <app-message [control]="cidade" error="required" text="Informe cidade"></app-message>
 
       </div>
       <div class="ui-g-12 ui-md-2 ui-fluid">
         <label>Cód. Ibge cidade</label>
-        <input type="text" pInputText name="ibgeCidade" ngModel #ibgeCidade="ngModel" required  />
+        <input type="text" pInputText name="ibgeCidade" [(ngModel)]="empresa.endereco.codigoIbegeCidade" #ibgeCidade="ngModel" required  />
         <app-message [control]="ibgeCidade" error="required" text="Informe o cód. Ibge da cidade"></app-message>
       </div>
     </div>
@@ -73,24 +73,24 @@
     <div class="ui-g">
       <div class="ui-g-6 ui-md-1 ui-fluid">
         <label>Sigla UF</label>
-        <input type="text" pInputText name="uf" ngModel #uf="ngModel" required />
+        <input type="text" pInputText name="uf" [(ngModel)]="empresa.endereco.siglaEstado" #uf="ngModel" required />
         <app-message [control]="uf" error="required" text="Informe a UF"></app-message>
       </div>
       <div class="ui-g-6 ui-md-2 ui-fluid">
         <label>Cód. Ibge UF</label>
-        <input type="text" pInputText name="ibgeUf" ngModel #ibgeUf="ngModel" required  />
+        <input type="text" pInputText name="ibgeUf" [(ngModel)]="empresa.endereco.codigoIbegeEstado" #ibgeUf="ngModel" required  />
         <app-message [control]="ibgeUf" error="required" text="Informe o cód. Ibge da UF"></app-message>
 
       </div>
 
       <div class="ui-g-6 ui-md-3 ui-fluid">
         <label>País</label>
-        <input type="text" pInputText name="pais" ngModel #pais="ngModel" required />
+        <input type="text" pInputText name="pais" [(ngModel)]="empresa.endereco.pais" #pais="ngModel" required />
         <app-message [control]="pais" error="required" text="Informe o país"></app-message>
       </div>
       <div class="ui-g-6 ui-md-2 ui-fluid">
         <label>Cód. Ibge País</label>
-        <input type="text" pInputText name="ibgePais" ngModel #ibgePais="ngModel" required />
+        <input type="text" pInputText name="ibgePais" [(ngModel)]="empresa.endereco.codigoIbegePais" #ibgePais="ngModel" required />
         <app-message [control]="ibgePais" error="required" text="Informe o cód. Ibge do país"></app-message>
       </div>
     </div>

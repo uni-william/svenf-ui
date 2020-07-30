@@ -1,3 +1,4 @@
+import { ErrorHandlerService } from './../../core/error-handler.service';
 import { EmpresaService, EmpresaFiltro } from './../empresa.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Table } from 'primeng/table';
@@ -18,7 +19,8 @@ export class EmpresaPesquisaComponent implements OnInit {
 
   constructor(private service: EmpresaService,
               private messageService: MessageService,
-              private confirmation: ConfirmationService) { }
+              private confirmation: ConfirmationService,
+              private errorHandler: ErrorHandlerService) { }
 
   ngOnInit(): void {
   }
@@ -29,7 +31,8 @@ export class EmpresaPesquisaComponent implements OnInit {
     .then(resultado => {
       this.empresas = resultado.empresas;
       this.totalRegistros = resultado.total;
-    });
+    })
+    .catch(erro => this.errorHandler.handle(erro));
   }
 
   confirmarExcluisao(empresa: any) {
@@ -41,7 +44,7 @@ export class EmpresaPesquisaComponent implements OnInit {
       }
     });
 
-  };
+  }
 
   excluir(empresa: any) {
     this.service.excluir(empresa.id)
@@ -49,7 +52,8 @@ export class EmpresaPesquisaComponent implements OnInit {
       this.pesquisar();
       this.grid.reset();
       this.messageService.add({severity: 'success', detail: 'Empresa excluída com sucesso!'});
-    });
+    })
+    .catch(erro => this.errorHandler.handle(erro));
   }
 
 

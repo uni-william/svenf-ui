@@ -1,5 +1,6 @@
+import { Empresa } from './../core/model';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 
 
 export class EmpresaFiltro {
@@ -50,5 +51,12 @@ export class EmpresaService {
     return this.http.delete(`${this.empresasUrl}/${id}`)
     .toPromise()
     .then(() => null);
+  }
+
+  adicionar(empresa: Empresa): Promise<Empresa> {
+    let headers = new HttpHeaders();
+    headers = headers.append('Content-Type', 'application/json');
+    return this.http.post<Empresa>(this.empresasUrl, empresa, { headers })
+  .toPromise();
   }
 }
