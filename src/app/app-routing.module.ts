@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
-import { EmpresaCadastroComponent } from './empresa/empresa-cadastro/empresa-cadastro.component';
-import { EmpresaPesquisaComponent } from './empresa/empresa-pesquisa/empresa-pesquisa.component';
 import { RouterModule, Routes } from '@angular/router';
+import { PaginaNaoEncontradaComponent } from './core/pagina-nao-encontrada.component';
 
 const routes: Routes = [
-  { path: 'empresas', component: EmpresaPesquisaComponent },
-  { path: 'empresas/nova', component: EmpresaCadastroComponent },
-  { path: 'empresas/:id', component: EmpresaCadastroComponent }
+  { path: '', redirectTo: 'empresas', pathMatch: 'full' },
+  { path: 'pagina-nao-encontrada', component: PaginaNaoEncontradaComponent },
+  { path: '**', redirectTo: 'pagina-nao-encontrada' }
 ];
 
 @NgModule({

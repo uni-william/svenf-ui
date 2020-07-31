@@ -3,6 +3,7 @@ import { EmpresaService, EmpresaFiltro } from './../empresa.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Table } from 'primeng/table';
 import { MessageService, ConfirmationService, LazyLoadEvent } from 'primeng/api';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-empresa-pesquisa',
@@ -20,9 +21,11 @@ export class EmpresaPesquisaComponent implements OnInit {
   constructor(private service: EmpresaService,
               private messageService: MessageService,
               private confirmation: ConfirmationService,
-              private errorHandler: ErrorHandlerService) { }
+              private errorHandler: ErrorHandlerService,
+              private title: Title) { }
 
   ngOnInit(): void {
+    this.title.setTitle('Pesquisa de empresas');
   }
 
   pesquisar(pagina = 0) {

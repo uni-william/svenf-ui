@@ -1,4 +1,3 @@
-import { AppRoutingModule } from './../app-routing.module';
 import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -10,6 +9,7 @@ import { ButtonModule } from 'primeng/button';
 import { TooltipModule } from 'primeng/tooltip';
 import { EmpresaCadastroComponent } from './empresa-cadastro/empresa-cadastro.component';
 import { FormsModule } from '@angular/forms';
+import { EmpresaRoutingModule } from './empresa-routing.module';
 
 
 
@@ -25,7 +25,7 @@ import { FormsModule } from '@angular/forms';
     TooltipModule,
     FormsModule,
     SharedModule,
-    AppRoutingModule
+    EmpresaRoutingModule
   ],
   exports: [EmpresaPesquisaComponent, EmpresaCadastroComponent]
 })

@@ -2,7 +2,7 @@
   <form autocomplete="off" #formEmpresa="ngForm" (ngSubmit)="salvar(formEmpresa)" >
     <div class="ui-g">
       <div class="ui-g-12">
-        <h1>Nova empresa</h1>
+        <h1>{{ editando ? 'Edição de' : 'Novo'  }} Empresa</h1>
       </div>
 
       <div class="ui-g-12">
@@ -98,7 +98,8 @@
     <div class="ui-g">
       <div class="ui-g-12">
         <button pButton type="submit" label="Salvar" style="margin-right: 5px;" [disabled]="formEmpresa.invalid"></button>
-        <button pButton type="button" label="Novo" class="ui-button-info" style="margin-right: 5px;"></button>
+        <button pButton type="button" label="Novo" class="ui-button-info" style="margin-right: 5px;"
+        (click)="nova(formEmpresa)"></button>
         <a routerLink="/empresas">Voltar para a pesquisa</a>
       </div>
 
