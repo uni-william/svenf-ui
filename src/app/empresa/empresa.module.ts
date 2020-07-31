@@ -6,6 +6,7 @@ import { TableModule } from 'primeng/table';
 import { InputMaskModule } from 'primeng/inputmask';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
+import { PanelModule } from 'primeng/panel';
 import { TooltipModule } from 'primeng/tooltip';
 import { EmpresaCadastroComponent } from './empresa-cadastro/empresa-cadastro.component';
 import { FormsModule } from '@angular/forms';
@@ -22,6 +23,7 @@ import { EmpresaRoutingModule } from './empresa-routing.module';
     InputMaskModule,
     InputTextModule,
     ButtonModule,
+    PanelModule,
     TooltipModule,
     FormsModule,
     SharedModule,

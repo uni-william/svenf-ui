@@ -1,9 +1,7 @@
-<div class="container">
+<p-panel header="{{ editando ? 'Edição de' : 'Nova'  }} Empresa">
+<div>
   <form autocomplete="off" #formEmpresa="ngForm" (ngSubmit)="salvar(formEmpresa)" >
     <div class="ui-g">
-      <div class="ui-g-12">
-        <h1>{{ editando ? 'Edição de' : 'Novo'  }} Empresa</h1>
-      </div>
 
       <div class="ui-g-12">
         <label style="display: block;">CNPJ</label>
@@ -98,7 +96,7 @@
     <div class="ui-g">
       <div class="ui-g-12">
         <button pButton type="submit" label="Salvar" style="margin-right: 5px;" [disabled]="formEmpresa.invalid"></button>
-        <button pButton type="button" label="Novo" class="ui-button-info" style="margin-right: 5px;"
+        <button pButton type="button" label="Nova" class="ui-button-info" style="margin-right: 5px;"
         (click)="nova(formEmpresa)"></button>
         <a routerLink="/empresas">Voltar para a pesquisa</a>
       </div>
@@ -107,3 +105,4 @@
 
   </form>
 </div>
+</p-panel>
