@@ -12,15 +12,22 @@ label {
   width: 93px;
 }
 .col-cnpj {
-  width: 150px;
+  width: 160px;
 }
 
 .col-id {
-  width:40px;
+  width:60px;
+  text-align: right;
 }
 .col-ie {
-  width: 100px;
+  width: 120px;
 }
+
+.col-id-det {
+  width:60px;
+  text-align: right;
+}
+
 
 @media (min-width:1200px) {
   .container {
